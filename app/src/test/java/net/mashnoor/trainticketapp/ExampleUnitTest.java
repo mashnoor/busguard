@@ -1,4 +1,4 @@
-package net.mashnoor.trainticetapp;
+package net.mashnoor.trainticketapp;
 
 import org.junit.Test;
 

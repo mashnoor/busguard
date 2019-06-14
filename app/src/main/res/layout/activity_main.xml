@@ -16,6 +16,7 @@
         app:bootstrapSize="lg"
         app:buttonMode="regular"
         app:roundedCorners="true"
+        android:onClick="goPost"
         app:showOutline="false" />
 
     <LinearLayout
@@ -53,6 +54,7 @@
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvPosts"
         android:layout_width="match_parent"
 
         android:layout_height="match_parent" />

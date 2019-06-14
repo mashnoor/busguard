@@ -1,4 +1,4 @@
-package net.mashnoor.trainticetapp;
+package net.mashnoor.trainticketapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
