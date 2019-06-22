@@ -1,9 +1,14 @@
 package net.mashnoor.trainticketapp;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapEditText;
@@ -11,12 +16,15 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import java.util.Calendar;
+
 import cz.msebera.android.httpclient.Header;
 
 public class PostTicket extends AppCompatActivity {
 
 
     BootstrapEditText betFrom, betTo, betJourneyDate, betJourneyTime, betNoOfSeats, betTrainName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,10 +36,58 @@ public class PostTicket extends AppCompatActivity {
         betJourneyTime = findViewById(R.id.betJourneyTime);
         betNoOfSeats = findViewById(R.id.betNoOfSeats);
         betTrainName = findViewById(R.id.betTrainName);
+
+        //Date Picker Handling
+        final Calendar myCalendar = Calendar.getInstance();
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                String month = String.valueOf(monthOfYear + 1);
+                String day = String.valueOf(dayOfMonth);
+                if (month.length() == 1)
+                    month = "0" + month;
+                // TODO Auto-generated method stub
+                if (day.length() == 1)
+                    day = "0" + day;
+
+                betJourneyDate.setText(year + "-" + month + "-" + day);
+            }
+
+        };
+
+        betJourneyDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(PostTicket.this, AlertDialog.THEME_HOLO_LIGHT, date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+
+            }
+        });
+
+        betJourneyTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+                TimePickerDialog mTimePicker;
+                mTimePicker = new TimePickerDialog(PostTicket.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                        betJourneyTime.setText( selectedHour + ":" + selectedMinute);
+                    }
+                }, hour, minute, true);//Yes 24 hour time
+                mTimePicker.setTitle("Select Time");
+                mTimePicker.show();
+
+            }
+        });
     }
 
-    public void postTicketOnline(View v)
-    {
+    public void postTicketOnline(View v) {
         String from = betFrom.getText().toString();
         String to = betTo.getText().toString();
         String journeyDate = betJourneyDate.getText().toString();
@@ -64,15 +120,12 @@ public class PostTicket extends AppCompatActivity {
                 String response = new String(responseBody);
                 dialog.dismiss();
 
-                if(response.equals("success"))
-                {
+                if (response.equals("success")) {
 
                     showToast("Successfully posted!");
                     finish();
 
-                }
-                else
-                {
+                } else {
                     showToast("Something went wrong!");
                 }
 
@@ -90,8 +143,7 @@ public class PostTicket extends AppCompatActivity {
 
     }
 
-    private void showToast(String s)
-    {
+    private void showToast(String s) {
         Toast.makeText(this, s, Toast.LENGTH_LONG).show();
     }
 }

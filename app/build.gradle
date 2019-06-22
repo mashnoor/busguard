@@ -33,4 +33,5 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation "com.orhanobut:hawk:2.0.1"
+    implementation 'com.karumi:dexter:5.0.0'
 }

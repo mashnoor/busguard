@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="From Station:" />
+
+            <com.beardedhen.androidbootstrap.BootstrapEditText
+                android:id="@+id/betFromStation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:bootstrapBrand="info"
+                app:bootstrapSize="md" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="To Station:" />
+
+            <com.beardedhen.androidbootstrap.BootstrapEditText
+                android:id="@+id/betToStation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:bootstrapBrand="info"
+                app:bootstrapSize="md" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Journey Date:" />
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:id="@+id/betJournetDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="none"
+        app:bootstrapBrand="info"
+        app:bootstrapSize="md" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="goSearch"
+        android:text="Search"
+        app:bootstrapBrand="success"
+        app:bootstrapSize="lg"
+        app:buttonMode="regular"
+        app:roundedCorners="true"
+        app:showOutline="false" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvPosts"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

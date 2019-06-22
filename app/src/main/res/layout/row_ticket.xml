@@ -153,6 +153,7 @@
                     android:textSize="15sp"
                     android:layout_height="wrap_content" />
                 <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:id="@+id/btnCall"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Call"
