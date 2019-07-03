@@ -2,9 +2,9 @@ package net.mashnoor.trainticketapp;
 
 public class AppUrl {
 
-    final private static String BASE_URL = "http://192.168.43.162:5003";
+    final private static String BASE_URL = "http://mashnoor.serveo.net/busscanbackend/public/api";
 
-    final public static String POST_TICKET_URL = BASE_URL + "/post-ticket";
+    final public static String SEND_REPORT = BASE_URL + "/makereport";
 
     final public static String GET_ALL_POSTS_URL = BASE_URL + "/getposts";
 

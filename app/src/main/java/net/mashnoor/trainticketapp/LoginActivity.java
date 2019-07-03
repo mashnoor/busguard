@@ -29,6 +29,11 @@ public class LoginActivity extends AppCompatActivity {
         betPhoneNumber = findViewById(R.id.betPhoneNumber);
         betPassword = findViewById(R.id.betPassword);
         Hawk.init(this).build();
+        if(AppHelper.isLoggedIn())
+        {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        }
     }
 
     public void goSignUpPage(View v) {
@@ -40,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         RequestParams params = new RequestParams();
         String number = betPhoneNumber.getText().toString();
         String password = betPassword.getText().toString();
-        params.put("number", number);
+        params.put("phone", number);
         params.put("password", password);
         final ProgressDialog dialog = new ProgressDialog(this);
         dialog.setMessage("Loading. Please wait...");
@@ -77,6 +82,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 showToast("Something went wrong");
+                showToast(new String(responseBody));
                 dialog.dismiss();
 
             }

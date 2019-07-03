@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -12,8 +13,7 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchActivity"/>
-        <activity android:name=".MyPosts" />
+
         <activity
             android:name=".SplashActivity"
 
@@ -26,7 +26,7 @@
         </activity>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".PostTicket" />
+        <activity android:name=".ScanActivity" />
         <activity android:name=".MainActivity" />
     </application>
 

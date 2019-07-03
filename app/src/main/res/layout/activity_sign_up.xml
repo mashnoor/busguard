@@ -6,11 +6,11 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:gravity="center"
-        android:textSize="30sp"
-        android:text="Train Ticket App"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Sign Up"
+        android:textSize="30sp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -27,6 +27,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Phone No:" />
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:id="@+id/betEmergencyPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bootstrapBrand="info"
+        app:bootstrapSize="md" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Emergency Phone No:" />
 
     <com.beardedhen.androidbootstrap.BootstrapEditText
         android:id="@+id/betPhoneNumber"

@@ -4,23 +4,31 @@ import com.google.gson.annotations.SerializedName;
 
 public class User {
 
+
     @SerializedName("id")
+    @Expose
     private Integer id;
-
     @SerializedName("name")
+    @Expose
     private String name;
-
-    @SerializedName("number")
-    private Integer number;
-
     @SerializedName("address")
+    @Expose
     private String address;
-
+    @SerializedName("phone")
+    @Expose
+    private String phone;
+    @SerializedName("emergency_phone")
+    @Expose
+    private String emergencyPhone;
     @SerializedName("password")
+    @Expose
     private String password;
-
-    @SerializedName("createdAt")
+    @SerializedName("created_at")
+    @Expose
     private String createdAt;
+    @SerializedName("updated_at")
+    @Expose
+    private String updatedAt;
 
     public Integer getId() {
         return id;
@@ -38,20 +46,28 @@ public class User {
         this.name = name;
     }
 
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmergencyPhone() {
+        return emergencyPhone;
+    }
+
+    public void setEmergencyPhone(String emergencyPhone) {
+        this.emergencyPhone = emergencyPhone;
     }
 
     public String getPassword() {
@@ -68,5 +84,13 @@ public class User {
 
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
